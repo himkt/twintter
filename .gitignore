@@ -17,3 +17,6 @@
 /tmp
 .*
 !.gitignore
+
+# Ignore bundle installs
+/vendor/bundle
