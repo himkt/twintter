@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="jumbotron">
+		<h1>Search</h1>
+		<%= form_for @subject do |f| %>
+
+		<div class="field">
+			<%= f.label :name, "名前" %>
+			<%= f.text_field :name %>
+		</div>
+
+		<div class="field">
+			<%= f.label :email, "メールアドレス" %>
+			<%= f.text_field :email %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit "登録する" %>
+		</div>
+		<% end %>
+	</div>
+</div>
