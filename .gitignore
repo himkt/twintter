@@ -21,6 +21,6 @@
 # Ignore bundle installs
 /vendor/bundle
 
-/config/secrets.yaml
+/config/secrets.yml
 
 public/assets
