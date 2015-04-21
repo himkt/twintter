@@ -20,3 +20,7 @@
 
 # Ignore bundle installs
 /vendor/bundle
+
+/config/secrets.yaml
+
+public/assets
