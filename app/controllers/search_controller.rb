@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @subject = Subject.new
+    @subject = Subject.all
   end
 
   def search
