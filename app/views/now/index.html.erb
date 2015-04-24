@@ -1,7 +1,13 @@
 <div class="container">
-	<div class="jumbotron">
-		<h1>Now</h1>
-		<p>Awsome SNS and Taking classes System. </p>
-		<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-	</div>
+  <div class="jumbotron">
+    <h1>Now</h1>
+  </div>
+  <div class="list-group">
+    <% @posts.each do |post| %>
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading"><%= post['user']%></h4>
+        <p class="list-group-item-text"><%= post['text'] %></p>
+      </a>
+    <% end %>
+  </div>
 </div>

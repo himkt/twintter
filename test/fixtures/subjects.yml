@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kcode: MyString
+  unit: 1.5
+  kname: MyString
+  grade: MyString
+  semester: MyString
+  time: MyString
+  location: MyString
+  lecturer: MyText
+  summary: MyText
+  note: MyText
+  credit: MyString
+  condition: MyText
+  alternative: MyString
+
+two:
+  kcode: MyString
+  unit: 1.5
+  kname: MyString
+  grade: MyString
+  semester: MyString
+  time: MyString
+  location: MyString
+  lecturer: MyText
+  summary: MyText
+  note: MyText
+  credit: MyString
+  condition: MyText
+  alternative: MyString
