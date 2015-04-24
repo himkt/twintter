@@ -21,3 +21,7 @@
 # Ignore bundle installs
 /vendor/bundle
 /vendor/cutted_subjects.tsv
+
+/config/secrets.yml
+
+public/assets
