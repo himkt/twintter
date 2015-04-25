@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'home/index' => 'home/index'
   get 'now/index' => 'now/index'
   get 'search/index' => 'search#index'
+  # get 'search/detail/:kcode' => 'search/detail/:kcode'
+
+  post 'search/search' => 'search/search'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

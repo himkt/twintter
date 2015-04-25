@@ -1,11 +1,11 @@
 class SearchController < ApplicationController
   def index
-    @subject = Subject.where(id: '1')
   end
 
   def search
+    @subject = Subject.first(3)#.where(id: '1')
   end
 
-  def detail
+  def detail(kcode)
   end
 end
