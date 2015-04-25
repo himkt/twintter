@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @subject = Subject.all
+    @subject = Subject.where(id: '1')
   end
 
   def search

@@ -1,5 +1,8 @@
 <div class="container">
   <div class="jumbotron">
     <h1>Search</h1>
+    <% @subject.each do |attr| %>
+      <%= attr[:summary] %>
+    <% end %>
   </div>
 </div>
