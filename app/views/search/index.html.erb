@@ -1,5 +1,22 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1>Search</h1>
+  <div class="panel panel-default">
+    <div class="panel-heading">検索条件</div>
+    <div class="panel-body">
+      <%= form_for(@subjects, url: {:action=>'search'}, html: { method: :post, class: 'form-inline', role: 'form' }) do |f| %>
+        <%= f.text_field :kcode, class: 'form-control', placeholder: '科目番号' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= f.text_field :kname, class: 'form-control', placeholder: '科目名' %>
+        <%= select_tag "grade", options_for_select([['標準履修年次',nil],[1,1],[2,2]]), class: 'form-control' %>
+        <%= submit_tag "検索", class: 'btn btn-default' %>
+      <% end %>
+    </div>
   </div>
 </div>
