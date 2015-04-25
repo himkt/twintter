@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20150424161522) do
 
   create_table "subjects", force: :cascade do |t|
     t.string   "kcode"
-    t.float    "unit"
     t.string   "kname"
+    t.float    "unit"
     t.string   "grade"
     t.string   "semester"
     t.string   "time"

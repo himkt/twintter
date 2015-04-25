@@ -2,8 +2,8 @@ class CreateSubjects < ActiveRecord::Migration
   def change
     create_table :subjects do |t|
       t.string :kcode
-      t.float :unit
       t.string :kname
+      t.float :unit
       t.string :grade
       t.string :semester
       t.string :time

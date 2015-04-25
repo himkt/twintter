@@ -2,7 +2,19 @@
   <div class="jumbotron">
     <h1>Search</h1>
     <% @subject.each do |attr| %>
+      <%= attr[:kcode] %>
+      <%= attr[:kname] %>
+      <%= attr[:unit] %>
+      <%= attr[:grade] %>
+      <%= attr[:semester] %>
+      <%= attr[:time] %>
+      <%= attr[:location] %>
+      <%= attr[:lecturer] %>
       <%= attr[:summary] %>
+      <%= attr[:note] %>
+      <%= attr[:credit] %>
+      <%= attr[:alternative] %>
+      <%= attr[:condition] %>
     <% end %>
   </div>
 </div>
