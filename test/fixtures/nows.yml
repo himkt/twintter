@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject_kcode: MyString
+  text: MyText
+
+two:
+  subject_kcode: MyString
+  text: MyText

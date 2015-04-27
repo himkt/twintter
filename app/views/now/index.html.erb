@@ -1,13 +1,19 @@
 <div class="container">
   <div class="jumbotron">
     <h1>Now</h1>
-  </div>
-  <div class="list-group">
-    <% @posts.each do |post| %>
-      <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading"><%= post['user']%></h4>
-        <p class="list-group-item-text"><%= post['text'] %></p>
-      </a>
+    <%= form_for(@post, url: {:action=>'index'}, html: { method: :post, class: 'form-inline', role: 'form' }) do |f| %>
+      <%= f.text_field :text, class: 'form-control', placeholder: '今なにしてる?' %>
+      <%= submit_tag "つぶやく", class: 'btn btn-default' %>
     <% end %>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">つぶやき</div>
+    <ul class="list-group">
+      <% @posts.each do |post| %>
+        <% if post['text'] != '' %>
+          <a class="list-group-item"><%= post['text']%></a>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
 </div>
