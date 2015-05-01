@@ -1,2 +1,18 @@
+
 <h1>search result</h1>
-<%= @subject %>
+
+<table border="1">
+  <tr>
+    <th>No</th>
+    <th>subject id</th>
+    <th>subject name</th>
+  </tr>
+  <% @subject.each.with_index(1) do |set, i| %>
+  <tr>
+    <td><%= "#{i}" %></td>
+    <td><%= set.id %></td>
+    <td><%= set.kcode %></td>
+    <td><%= link_to set.kname , '/search/detail/:kcode', :id => set.id%></td>
+  </tr>
+  <% end %>
+</table>
