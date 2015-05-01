@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   # get 'search/detail/:kcode' => 'search/detail/:kcode'
 
   post 'search/search' => 'search/search'
-  
+  # resources :search do
+  #   get 'search/detail/:kcode' => 'search#detail/:kcode' 
+  # end
+  get 'search/detail/:kcode' => 'search#detail#:kcode' 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,12 +1,27 @@
 class SearchController < ApplicationController
+  
+  #GET /search
+  #GET /search.json
+  
   def index
-    @subjects = Subject.new
+    @search = Subject.search(params[:q])
   end
-
+  
   def search
-    @subject = Subject.first(3)#.where(id: '1')
+    @search = Subject.search(params[:q])
+    @subject = @search.result(distinct: true)
+    respond_to do |format|
+      format.html 
+      format.json {render json:@subject}
+    end
   end
 
-  def detail(kcode)
+  def detail
+    id = params[:id]
+    
+    #    @subject = Subject.where({'id'=>id})
+    @subject = Subject.find(kcode: params[:kcode])
+    
   end
+
 end
