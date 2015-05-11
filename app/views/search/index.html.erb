@@ -7,16 +7,16 @@
         <%= f.text_field :kcode_cont, class: 'form-control', placeholder: '科目番号' %>
         <%= f.text_field :kname_cont, class: 'form-control', placeholder: '科目名' %>
         <%= f.text_field :unit_cont , class: 'form-control', placeholder: '単位数' %>
-        <%= f.text_field :grade_cont, class: 'form-control', placeholder: '次数' %>
         <%= f.text_field :semester_cont, class: 'form-control', placeholder: '学期' %>
         <%= f.text_field :time_cont, class: 'form-control', placeholder: '時間' %>
         <%= f.text_field :location_cont, class: 'form-control', placeholder: '場所' %>
         <%= f.text_field :lecturer_cont, class: 'form-control', placeholder: '担当教員' %>
         <%= f.text_field :summary_cont, class: 'form-control', placeholder: '概要' %>
         <%= f.text_field :note_cont, class: 'form-control', placeholder: '備考' %>
-        <%= f.select :grade_cont,options_for_select([['標準履修年次',nil],[1,'1'],[2,'2'],[3,'3'],[4,'4']]),class: 'form-control' %>
+        <%= f.select(:grade_cont,options_for_select([['標準履修年次',nil],[1,'1'],[2,'2'],[3,'3'],[4,'4']]),{},{:class => 'form-control'}) %>
         <%= submit_tag "検索", class: 'btn btn-default' %>
       <% end %>
     </div>
   </div>
 </div>
+

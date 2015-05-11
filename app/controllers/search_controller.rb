@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  
+ 
   #GET /search
   #GET /search.json
   
@@ -8,7 +8,7 @@ class SearchController < ApplicationController
   end
   
   def search
-    @search = Subject.search(params[:q])
+    @search = Subject.ransack(params[:q])
     @subject = @search.result(distinct: true)
     respond_to do |format|
       format.html 
