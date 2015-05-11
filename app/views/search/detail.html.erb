@@ -1,20 +1,58 @@
 <div class="container">
   <div class="jumbotron">
-    <h1>Search</h1>
+
     <% @subject.each do |attr| %>
-      <%= attr[:kcode] %>
-      <%= attr[:kname] %>
-      <%= attr[:unit] %>
-      <%= attr[:grade] %>
-      <%= attr[:semester] %>
-      <%= attr[:time] %>
-      <%= attr[:location] %>
-      <%= attr[:lecturer] %>
-      <%= attr[:summary] %>
-      <%= attr[:note] %>
-      <%= attr[:credit] %>
-      <%= attr[:alternative] %>
-      <%= attr[:condition] %>
-    <% end %>
+    <h1><%= attr[:kname] %></h1>
+    <table border="1">
+      <tr>
+        <td>kcode</td>
+        <td><%= attr[:kcode] %></td>
+      </tr>
+      <tr>
+        <td>unit</td>
+        <td><%= attr[:unit] %></td>
+      </tr>
+      <tr>
+        <td>grade</td>
+        <td><%= attr[:grade] %></td>
+      </tr>
+      <tr>
+        <td>semester</td>
+        <td><%= attr[:semester] %></td>
+      </tr>
+      <tr>
+        <td>time</td>
+        <td><%= attr[:time] %></td>
+      </tr>
+      <tr>
+        <td>location</td>
+        <td><%= attr[:location] %></td>
+      </tr>
+      <tr>
+        <td>lecturer</td>
+        <td><%= attr[:lecturer] %></td>
+      </tr>
+      <tr>
+        <td>summary</td>
+        <td><%= attr[:summary] %></td>
+      </tr>
+      <tr>
+        <td>note</td>
+        <td><%= attr[:note] %></td>
+      </tr>
+      <tr>
+        <td>credit</td>
+        <td><%= attr[:credit] %></td>
+      </tr>
+      <tr>
+        <td>alternatice</td>
+        <td><%= attr[:alternative] %></td>
+      </tr>
+      <tr>
+        <td>conditition</td>
+        <td><%= attr[:conditition] %></td>
+      </tr>
+     <% end %>
+     </table>
   </div>
 </div>
