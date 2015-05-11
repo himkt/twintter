@@ -17,10 +17,8 @@ class SearchController < ApplicationController
   end
 
   def detail
-    id = params[:id]
-    
-    #    @subject = Subject.where({'id'=>id})
-    @subject = Subject.find(kcode: params[:kcode])
+    kcode = params[:kcode]
+    @subject = Subject.where({'kcode'=>kcode})
     
   end
 
