@@ -1,4 +1,5 @@
 
+<div class="searchrusult">
 <h1>search result</h1>
 
 <table border="1">
@@ -10,9 +11,9 @@
   <% @subject.each.with_index(1) do |set, i| %>
   <tr>
     <td><%= "#{i}" %></td>
-    <td><%= set.id %></td>
     <td><%= set.kcode %></td>
     <td><%= link_to set.kname , "/search/detail/#{set.kcode}" %></td>
   </tr>
   <% end %>
 </table>
+</div>
