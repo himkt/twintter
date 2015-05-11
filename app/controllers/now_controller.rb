@@ -1,17 +1,17 @@
 class NowController < ApplicationController
   def index
-    @post = Now.new
     @posts = Now.all.reverse
-    param = params
-    tweet = param["now"]["text"] if param["now"]
-    subject_kcode = 0
-    if tweet
-      update(tweet, subject_kcode)
-    end
+    # @posts = Now.where("subject_kcode = ?",@subject_kcode)
   end
 
-  def brows(subject_kcode)
-    
+  def selected_index
+    @post = Now.new
+    @subject_kcode = params['subject_kcode']
+    @posts = Now.where("subject_kcode = ?",@subject_kcode)
+    tweet = params["now"]["text"] if params["now"]
+    if tweet
+      update(tweet, @subject_kcode)
+    end
   end
   
 	def update(tweet,subject_kcode='0')

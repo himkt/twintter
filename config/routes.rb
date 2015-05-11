@@ -5,20 +5,20 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'home#index'
-
   get 'home/index' => 'home/index'
-  get 'now/index' => 'now/index'
-  get 'search/index' => 'search#index'
+ 
+  get 'now/index' => 'now#index'
+  get 'now/selected_index/:subject_kcode' => 'now#selected_index'
+  post 'now/selected_index/:subject_kcode' => 'now#selected_index'
   # get 'search/detail/:kcode' => 'search/detail/:kcode'
 
-  post 'search/search' => 'search/search'
   # resources :search do
   #   get 'search/detail/:kcode' => 'search#detail/:kcode' 
   # end
   get 'search/detail/:kcode' => 'search#detail#:kcode' 
   post 'search/detail/:kcode' => 'search#detail#:kcode' 
-
-  post 'now/index' => 'now/index'
+  get 'search/index' => 'search#index'
+  post 'search/search' => 'search/search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
