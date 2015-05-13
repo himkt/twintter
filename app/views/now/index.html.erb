@@ -5,10 +5,13 @@
   <div class="panel panel-default">
     <div class="panel-heading">つぶやき</div>
     <ul class="list-group">
+      <% @posts.reverse %>
       <% @posts.each do |post| %>
-        <% if post['text'] != '' %>
-          <a class="list-group-item"><%= "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" %></a>
-        <% end %>
+      <% if post['text'] != '' %>
+      <% if post['deleteflag'] == false %>
+      <a class="list-group-item"><%= "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" %></a>
+      <% end %>
+      <% end %>
       <% end %>
     </ul>
   </div>
