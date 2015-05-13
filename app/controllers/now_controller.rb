@@ -14,16 +14,17 @@ class NowController < ApplicationController
     end
   end
   
-	def update(tweet,subject_kcode='0')
+  def update(tweet,subject_kcode='0')
     if subject_kcode != '0'
-      Now.create(:subject_kcode=>subject_kcode, :text=>tweet)
+      Now.create(:subject_kcode=>subject_kcode, :text=>tweet ,:deleteflag=>false)
       render action: :index
     end
-	end
-
-	def delete(id=nil)
-	end
-
-	def favorite(id=nil)
-	end
+  end
+  
+  def delete(id=nil)
+    @now = Now.find(params[:id])
+    @update = @now.updata(deleteflag = True)
+  end
+  def favorite(id=nil)
+  end
 end
