@@ -1,19 +1,29 @@
 
-<div class="searchrusult">
-<h1>search result</h1>
+<div class="container">
 
-<table border="1">
-  <tr>
-    <th>No</th>
-    <th>subject id</th>
-    <th>subject name</th>
-  </tr>
-  <% @subject.each.with_index(1) do |set, i| %>
-  <tr>
-    <td><%= "#{i}" %></td>
-    <td><%= set.kcode %></td>
-    <td><%= link_to set.kname , "/search/detail/#{set.kcode}" %></td>
-  </tr>
-  <% end %>
-</table>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">検索結果</div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>検索件数</th>
+          <th>科目番号</th>
+          <th>科目名</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @subject.each.with_index(1) do |set, i| %>
+          <tr>
+            <td><%= "#{i}" %></td>
+            <td><%= set.kcode %></td>
+            <td><%= link_to set.kname , "/search/detail/#{set.kcode}" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

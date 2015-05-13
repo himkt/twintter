@@ -1,14 +1,17 @@
 <div class="container">
   <div class="jumbotron">
-    <h1>Now</h1>
+    <h1>
+      <% @subject.each do |element| %>
+        <%= element['kname'] %>
+      <% end %>
+    </h1>
     <%= form_for(@post, url: {:action=>'selected_index'}, html: { method: :post, class: 'form-inline', role: 'form' }) do |f| %>
       <%= f.text_field :text, class: 'form-control', placeholder: '今なにしてる?' %>
       <%= submit_tag "つぶやく", class: 'btn btn-default' %>
     <% end %>
-    <%= @subject_kcode %>
-    <%= @params %>
+
   </div>
-  <div class="panel panel-default">
+  <div class="panel panel-info">
     <div class="panel-heading">つぶやき</div>
     <ul class="list-group">
       <% @posts.each do |post| %>

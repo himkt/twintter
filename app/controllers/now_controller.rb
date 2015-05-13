@@ -1,12 +1,12 @@
 class NowController < ApplicationController
   def index
     @posts = Now.all.reverse
-    # @posts = Now.where("subject_kcode = ?",@subject_kcode)
   end
 
   def selected_index
     @post = Now.new
     @subject_kcode = params['subject_kcode']
+    @subject = Subject.where("kcode = ?",@subject_kcode)
     @posts = Now.where("subject_kcode = ?",@subject_kcode)
     tweet = params["now"]["text"] if params["now"]
     if tweet
