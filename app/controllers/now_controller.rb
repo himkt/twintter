@@ -7,7 +7,7 @@ class NowController < ApplicationController
     @post = Now.new
     @subject_kcode = params['subject_kcode']
     @subject = Subject.where("kcode = ?",@subject_kcode)
-    @posts = Now.where("subject_kcode = ? and deleted = ?",@subject_kcode,0)
+    @posts = Now.where("subject_kcode = ? and deleted = ?",@subject_kcode,0).reverse
     tweet = params["now"]["text"] if params["now"]
     if tweet
       update(tweet, @subject_kcode)
