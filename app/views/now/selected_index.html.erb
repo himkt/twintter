@@ -1,13 +1,13 @@
 <div class="container">
   <div class="jumbotron">
-    <h1>
+    <h4>
       <% @subject.each do |element| %>
         <%= element['kname'] %>
       <% end %>
-    </h1>
+    </h4>
     <%= form_for(@post, url: {:action=>'selected_index'}, html: { method: :post, class: 'form-inline', role: 'form' }) do |f| %>
-    <%= f.text_field :text, class: 'form-control', placeholder: '今なにしてる?' %>
-    <%= submit_tag "つぶやく", class: 'btn btn-default' %>
+      <%= f.text_field :text, class: 'form-control', placeholder: '今なにしてる?' %>
+      <%= submit_tag "つぶやく", class: 'btn btn-default' %>
     <% end %>
 
   </div>
@@ -16,11 +16,9 @@
     <ul class="list-group">
       <% @posts.reverse %>
       <% @posts.each do |post| %>
-      <% if post['text'] != '' %>
-      <% if post['deleteflag'] == false %>
-      <a class="list-group-item"><%= "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" %></a>
-      <% end %>
-      <% end %>
+        <% if post['text'] != '' %>
+          <a class="list-group-item"><%= "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" %></a>
+        <% end %>
       <% end %>
     </ul>
   </div>

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514051421) do
+ActiveRecord::Schema.define(version: 20150514052211) do
 
   create_table "nows", force: :cascade do |t|
     t.string   "subject_kcode"
     t.text     "text"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.boolean  "deleted"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "deleted",       default: 0
   end
 
   create_table "subjects", force: :cascade do |t|

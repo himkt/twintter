@@ -7,11 +7,9 @@
     <ul class="list-group">
       <% @posts.reverse %>
       <% @posts.each do |post| %>
-      <% if post['text'] != '' %>
-      <% if post['deleteflag'] == false %>
-      <a class="list-group-item"><%= "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" %></a>
-      <% end %>
-      <% end %>
+        <% if post['text'] != '' %>
+          <a class="list-group-item"><%= "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" %></a>
+        <% end %>
       <% end %>
     </ul>
   </div>
