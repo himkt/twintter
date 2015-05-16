@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'home/index' => 'home/index'
  
   get 'now/index' => 'now#index'
-  get 'now/selected_index/:subject_kcode' => 'now#selected_index'
-  post 'now/selected_index/:subject_kcode' => 'now#selected_index'
+  get 'now/selected_index/:subject_kcode' => 'now#selected_index#subject_kcode'
+  post 'now/selected_index/:subject_kcode' => 'now#selected_index#subject_kcode'
   # get 'search/detail/:kcode' => 'search/detail/:kcode'
 
   # resources :search do

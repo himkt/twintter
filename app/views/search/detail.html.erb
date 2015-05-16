@@ -2,7 +2,7 @@
   <div class="jumbotron">
     <% @subject.each do |attr| %>
       <h2><%= attr[:kname] %></h2>
-      <a href="/now/selected_index/<%= attr[:kcode] %>" class="btn btn-primary btn-lg active" role="button">now</a>
+      <a class="btn btn-primary btn-lg notice" href="/now/selected_index/<%= attr[:kcode] %>">Now <i class="fa fa-twitter"></i></a>
     </div>
     <table class="table">
       <thead>
