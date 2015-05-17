@@ -19,8 +19,7 @@
 !.gitignore
 
 # Ignore bundle installs
-/vendor/bundle
-/vendor/subject
+/vendor/*
 
 /config/secrets.yml
 

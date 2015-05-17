@@ -1,3 +1,0 @@
-[submodule "vendor/subject"]
-	path = vendor/subject
-	url = git@bitbucket.org:himkt/subject.git
