@@ -17,4 +17,5 @@
 //= require bootstrap-sprockets
 //= require classie
 //= require freelancer
-//= require cbpAnimatedHeader
+//= require cbpAnimatedHeader.min
+//= require scrollspy

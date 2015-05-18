@@ -1,15 +1,16 @@
+
+
 <div class="container">
 
-
+<div class="hits-alert"><div class="text-center"><div class="alert alert-info"><p><%= @subject.size %>件がヒットしました</p></div></div></div>
   <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">検索結果 ( <%= @subject.size %>件ヒット)</div>
+    <div class="panel-heading">検索結果</div>
 
     <!-- Table -->
     <table class="table">
       <thead>
         <tr>
-          <th>検索件数</th>
           <th>科目番号</th>
           <th>科目名</th>
         </tr>
@@ -17,7 +18,6 @@
       <tbody>
         <% @subject.each.with_index(1) do |set, i| %>
           <tr>
-            <td><%= "#{i}" %></td>
             <td><%= set.kcode %></td>
             <td><%= link_to set.kname , "/search/detail/#{set.kcode}" %></td>
           </tr>
