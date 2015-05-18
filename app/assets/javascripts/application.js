@@ -15,3 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require classie
+//= require freelancer
+//= require cbpAnimatedHeader
