@@ -1,20 +1,70 @@
 <div class="container">
   <div class="jumbotron">
-    <h1>Search</h1>
     <% @subject.each do |attr| %>
-      <%= attr[:kcode] %>
-      <%= attr[:kname] %>
-      <%= attr[:unit] %>
-      <%= attr[:grade] %>
-      <%= attr[:semester] %>
-      <%= attr[:time] %>
-      <%= attr[:location] %>
-      <%= attr[:lecturer] %>
-      <%= attr[:summary] %>
-      <%= attr[:note] %>
-      <%= attr[:credit] %>
-      <%= attr[:alternative] %>
-      <%= attr[:condition] %>
-    <% end %>
-  </div>
+      <h2><%= attr[:kname] %></h2>
+      <a class="btn btn-primary btn-lg notice" href="/now/selected_index/<%= attr[:kcode] %>"><i class="fa fa-list"></i> Nowを見る</a>
+      <span>
+        <script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script>
+        <script type="text/javascript">
+          new media_line_me.LineButton({"pc":false,"lang":"ja","type":"a"});
+        </script>
+      </span>
+      <a class="btn btn-primary btn-lg notice" href="http://line.me/R/msg/text/?LINE%E3%81%A7%E9%80%81%E3%82%8B%0D%0Ahttp%3A%2F%2Fline.me%2F"><i class="fa fa-volume-up"></i> LINEで送る</a>
+      <a class="btn btn-primary btn-lg notice" href="https://twitter.com/share" class="twitter-share-button"><i class="fa fa-twitter"></i> Twitterで共有</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 200px;">属性</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="active">
+          <th scope="row">科目番号</th>
+          <td><%= attr[:kcode] %></td>
+        </tr>
+        <tr>
+          <th scope="row">単位数</th>
+          <td><%= attr[:unit] %></td>
+        </tr>
+        <tr class="success">
+          <th scope="row">標準履修年次</th>
+          <td><%= attr[:grade] %></td>
+        </tr>
+        <tr>
+          <th scope="row">曜時限</th>
+          <td><%= attr[:time] %></td>
+        </tr>
+        <tr class="info">
+          <th scope="row">場所</th>
+          <td><%= attr[:location] %></td>
+        </tr>
+        <tr>
+          <th scope="row">教員</th>
+          <td><%= attr[:lecturer]%></td>
+        </tr>
+        <tr class="warning">
+          <th scope="row">概要</th>
+          <td><%= attr[:summary] %></td>
+        </tr>
+        <tr>
+          <th scope="row">備考</th>
+          <td><%= attr[:note] %></td>
+        </tr>
+        <tr class="danger">
+          <th scope="row">科目等履修生</th>
+          <td><%= attr[:credit] %></td>
+        </tr>
+        <tr class="active">
+          <th scope="row">履修条件</th>
+          <td><%= attr[:conditition] %></td>
+        </tr>
+        <tr>
+          <th scope="row">代替表現</th>
+          <td><%= attr[:alternative] %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
 </div>

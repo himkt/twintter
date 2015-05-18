@@ -19,8 +19,7 @@
 !.gitignore
 
 # Ignore bundle installs
-/vendor/bundle
-/vendor/cutted_subjects.tsv
+/vendor/*
 
 /config/secrets.yml
 
