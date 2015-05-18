@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="col-lg-8 col-lg-offset-2">
-    <%= search_form_for(@search, url: {:action=>'search'}, html: { method: :post, class: 'form-inline', role: 'form' }) do |f| %>
+    <%= search_form_for(@subject, url: {:action=>'search'}, html: { method: :post, class: 'form-inline', role: 'form' }) do |f| %>
       <div class="row control-group">
         <%= f.text_field :kcode_cont, class: 'form-control', placeholder: '科目番号' %>
         <%= f.text_field :kname_cont, class: 'form-control', placeholder: '科目名' %>

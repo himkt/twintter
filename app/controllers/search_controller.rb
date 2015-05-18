@@ -4,12 +4,11 @@ class SearchController < ApplicationController
   #GET /search.json
   
   def index
-    @search = Subject.search(params[:q])
+    @subject = Subject.ransack(params[:q])
   end
   
   def search
-    @search = Subject.ransack(params[:q])
-    @subject = @search.result(distinct: true)
+    @subject = Subject.ransack(params[:q]).result
     respond_to do |format|
       format.html 
       format.json {render json:@subject}
