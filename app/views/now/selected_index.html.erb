@@ -16,7 +16,8 @@
     <ul class="list-group">
       <% @posts.each do |post| %>
         <% if post['text'] != '' %>
-          <a class="list-group-item"><%= "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" %></a>
+        <%= link_to "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" ,
+         "/search/detail/#{post.subject_kcode}" ,{:class=>"list-group-item"} %>
         <% end %>
       <% end %>
     </ul>
