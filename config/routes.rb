@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'search/detail/:kcode' => 'search#detail#:kcode' 
   post 'search/detail/:kcode' => 'search#detail#:kcode' 
   get 'search/index' => 'search#index'
-  post 'search/search' => 'search/search'
+  post 'search/index' => 'search/index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

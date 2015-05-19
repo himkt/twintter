@@ -1,32 +1,66 @@
 <section id="contact">
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12 text-center">
-      <h2>検索条件</h2>
-      <hr class="star-primary">
-    </div>
-  </div>
-  <div class="col-lg-8 col-lg-offset-2">
-    <%= search_form_for(@subject, url: {:action=>'search'}, html: { method: :post, class: 'form-inline', role: 'form' }) do |f| %>
-      <div class="row control-group">
-        <%= f.text_field :kcode_cont, class: 'form-control', placeholder: '科目番号' %>
-        <%= f.text_field :kname_cont, class: 'form-control', placeholder: '科目名' %>
-        <%= f.text_field :unit_cont , class: 'form-control', placeholder: '単位数' %>
-        <%= f.text_field :semester_cont, class: 'form-control', placeholder: '学期' %>
-        <%= f.text_field :time_cont, class: 'form-control', placeholder: '時間' %>
-        <%= f.text_field :location_cont, class: 'form-control', placeholder: '場所' %>
-        <%= f.text_field :lecturer_cont, class: 'form-control', placeholder: '担当教員' %>
-        <%= f.text_field :summary_cont, class: 'form-control', placeholder: '概要' %>
-        <%= f.text_field :note_cont, class: 'form-control', placeholder: '備考' %>
-        <%= f.select(:grade_cont,options_for_select([['標準履修年次',nil],[1,'1'],[2,'2'],[3,'3'],[4,'4']]),{},{:class => 'form-control'}) %>
+
+  <% unless @hits %>
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>検索条件</h2>
+        <hr class="star-primary">
       </div>
-      <div id="success"></div>
-      <div class="row">
-        <div class="form-group col-xs-12">
-          <%= submit_tag "検索", class: 'btn btn-success btn-lg' %>
+    </div>
+    <div class="col-lg-8 col-lg-offset-2">
+      <%= search_form_for @q, url: {:action=>'index'}, method: 'post' do |f| %>
+        <div class="row control-group">
+          <%= f.text_field :kcode_cont, class: 'form-control', placeholder: '科目番号' %>
+          <%= f.text_field :kname_cont, class: 'form-control', placeholder: '科目名' %>
+          <%= f.text_field :unit_cont , class: 'form-control', placeholder: '単位数' %>
+          <%= f.text_field :semester_cont, class: 'form-control', placeholder: '学期' %>
+          <%= f.text_field :time_cont, class: 'form-control', placeholder: '時間' %>
+          <%= f.text_field :location_cont, class: 'form-control', placeholder: '場所' %>
+          <%= f.text_field :lecturer_cont, class: 'form-control', placeholder: '担当教員' %>
+          <%= f.text_field :summary_cont, class: 'form-control', placeholder: '概要' %>
+          <%= f.text_field :note_cont, class: 'form-control', placeholder: '備考' %>
+          <%= f.select(:grade_cont,options_for_select([['標準履修年次',nil],[1,'1'],[2,'2'],[3,'3'],[4,'4']]),{},{:class => 'form-control'}) %>
+        </div><br>
+        <div id="success"></div>
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <%= submit_tag "検索", class: 'btn btn-success btn-lg' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  <% else %>
+
+    <div class="hits-alert"><div class="text-center"><div class="alert alert-info"><p><%= @hits %>件がヒットしました</p></div></div></div>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">検索結果</div>
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>科目番号</th>
+            <th>科目名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @subject.each.with_index(1) do |set, i| %>
+            <tr>
+              <td><%= set.kcode %></td>
+              <td><%= link_to set.kname , "/search/detail/#{set.kcode}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="panel-footer">
+        <div class="text-center">
+          <%= paginate(@subject) %>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 </section>
