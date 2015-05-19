@@ -8,8 +8,7 @@
       <% @posts.reverse %>
       <% @posts.each do |post| %>
         <% if post['text'] != '' %>
-          <%= link_to "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" ,
-           "/search/detail/#{post.subject_kcode}" ,{:class=>"list-group-item"} %>
+          <%= link_to "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" , "/search/detail/#{post.subject_kcode}" ,{:class=>"list-group-item"} %>
         <% end %>
       <% end %>
     </ul>
