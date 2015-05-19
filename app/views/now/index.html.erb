@@ -6,18 +6,6 @@
       <hr class="star-primary">
     </div>
   </div>
-<<<<<<< HEAD
-  <div class="panel panel-default">
-    <div class="panel-heading">つぶやき</div>
-    <ul class="list-group">
-      <% @posts.reverse %>
-      <% @posts.each do |post| %>
-        <% if post['text'] != '' %>
-          <%= link_to "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" , "/search/detail/#{post.subject_kcode}" ,{:class=>"list-group-item"} %>
-        <% end %>
-      <% end %>
-    </ul>
-=======
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
       <div class="panel panel-default">
@@ -33,7 +21,6 @@
         </ul>
       </div>
     </div>
->>>>>>> upstream/master
   </div>
 </div>
 </section>

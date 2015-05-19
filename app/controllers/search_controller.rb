@@ -5,7 +5,8 @@ class SearchController < ApplicationController
 
   def index
     @q = Subject.ransack(params[:q])
-    if request.post?
+    page = params[:page]
+    if request.post? || page
       @hits = @q.result.size
       @subject = @q.result.page(params[:page])
       respond_to do |format|
