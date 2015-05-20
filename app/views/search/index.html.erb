@@ -1,8 +1,6 @@
 <section id="contact">
-<div class="container">
-
-  <% unless @hits %>
-
+<% if @flag %>
+  <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2>検索条件</h2>
@@ -22,45 +20,43 @@
           <%= f.text_field :summary_cont, class: 'form-control', placeholder: '概要' %>
           <%= f.text_field :note_cont, class: 'form-control', placeholder: '備考' %>
           <%= f.select(:grade_cont,options_for_select([['標準履修年次',nil],[1,'1'],[2,'2'],[3,'3'],[4,'4']]),{},{:class => 'form-control'}) %>
-
-        </div>
-        <br>
-        </div><br>
-        <div id="success"></div>
-        <div class="row">
-          <div class="form-group col-xs-12">
-            <%= submit_tag "検索", class: 'btn btn-success btn-lg' %>
-          </div>
+          <%= submit_tag "検索", class: 'btn btn-success' %>
         </div>
       <% end %>
     </div>
-
-  <% else %>
-
-    <div class="hits-alert"><div class="text-center"><div class="alert alert-info"><p><%= @hits %>件がヒットしました</p></div></div></div>
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">検索結果</div>
-      <!-- Table -->
-      <table class="table">
-        <thead>
-          <tr>
-            <th>科目番号</th>
-            <th>科目名</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @subject.each.with_index(1) do |set, i| %>
+  </div>
+<% else %>
+  <div class="container">
+    <div class="hits-alert">
+      <div class="text-center">
+        <div class="alert alert-info">
+          <p><%= @hits %>件ヒット (<%= (@page.to_i-1)*25 + 1%>~<%= (@page.to_i-1)*25 + @subject.size %>件)</p>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">検索結果</div>
+        <!-- Table -->
+        <table class="table">
+          <thead>
             <tr>
-              <td><%= set.kcode %></td>
-              <td><%= link_to set.kname , "/search/detail/#{set.kcode}" %></td>
+              <th>科目番号</th>
+              <th>科目名</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="panel-footer">
-        <div class="text-center">
-          <%= paginate(@subject) %>
+          </thead>
+          <tbody>
+            <% @subject.each.with_index(1) do |set, i| %>
+              <tr>
+                <td><%= set.kcode %></td>
+                <td><%= link_to set.kname , "/search/detail/#{set.kcode}" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="panel-footer">
+          <div class="text-center">
+            <%= paginate(@subject) %>
+          </div>
         </div>
       </div>
     </div>

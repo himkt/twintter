@@ -5,17 +5,16 @@ class SearchController < ApplicationController
 
   def index
     @q = Subject.ransack(params[:q])
-    page = params[:page]
-    if request.post? || page
-      @hits = @q.result.size
-      @subject = @q.result.page(params[:page])
-      respond_to do |format|
-        format.html 
-        format.json {render json:@subject}
-      end
+    @flag = params[:q] ? false : true
+    @page = params[:page] ? params[:page] : '1'
+    @hits = @q.result.size
+    @subject = @q.result.page(params[:page])
+    respond_to do |format|
+      format.html 
+      format.json {render json:@subject}
     end
   end
-  
+
   def detail
     kcode = params[:kcode]
     @subject = Subject.where({'kcode'=>kcode})
