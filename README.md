@@ -1,6 +1,6 @@
 # Twintter
 
-Twintter is a system includes various function: search, share, talk a course and so on.
+Twintter is a system includes various function: searching, sharing, and talking about a course...
 
 This application is for a main major training in University of Tsukuba, College of knowledge and library science.
 
