@@ -8,36 +8,41 @@
       </div>
     </div>
     <div class="col-lg-8 col-lg-offset-2">
-      <%= search_form_for @q, url: {:action=>'index'}, method: 'post' do |f| %>
-        <div class="row control-group">
-          <%= f.text_field :kcode_cont, class: 'form-control', placeholder: '科目番号' %>
-          <%= f.text_field :kname_cont, class: 'form-control', placeholder: '科目名' %>
-          <%= f.text_field :unit_eq , class: 'form-control', placeholder: '単位数' %>
-          <%= f.text_field :semester_cont, class: 'form-control', placeholder: '学期' %>
-          <%= f.text_field :time_cont, class: 'form-control', placeholder: '時間' %>
-          <%= f.text_field :location_cont, class: 'form-control', placeholder: '場所' %>
-          <%= f.text_field :lecturer_cont, class: 'form-control', placeholder: '担当教員' %>
-          <%= f.text_field :summary_cont, class: 'form-control', placeholder: '概要' %>
-          <%= f.text_field :note_cont, class: 'form-control', placeholder: '備考' %>
-          <%= f.select(:grade_cont,options_for_select([['標準履修年次',nil],[1,'1'],[2,'2'],[3,'3'],[4,'4']]),{},{:class => 'form-control'}) %>
-          <%= submit_tag "検索", class: 'btn btn-success' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% else %>
-  <div class="container">
-    <div class="hits-alert">
-      <div class="text-center">
-        <div class="alert alert-info">
-          <p><%= @hits %>件ヒット (<%= (@page.to_i-1)*25 + 1%>~<%= (@page.to_i-1)*25 + @subject.size %>件)</p>
-        </div>
-      </div>
       <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">検索結果</div>
-        <!-- Table -->
-        <table class="table">
+        <div class="panel-body">
+          <%= search_form_for @q, url: {:action=>'index'}, html: {:class=>"form-inline"}, method: 'post' do |f| %>
+            <div class="row control-group">
+              <%= f.text_field :kcode_cont, class: 'form-control', placeholder: '科目番号' %>
+              <%= f.text_field :kname_cont, class: 'form-control', placeholder: '科目名' %>
+              <%= f.text_field :unit_eq , class: 'form-control', placeholder: '単位数' %>
+              <%= f.text_field :semester_cont, class: 'form-control', placeholder: '学期' %>
+              <%= f.text_field :time_cont, class: 'form-control', placeholder: '時間' %>
+              <%= f.text_field :location_cont, class: 'form-control', placeholder: '場所' %>
+              <%= f.text_field :lecturer_cont, class: 'form-control', placeholder: '担当教員' %>
+              <%= f.text_field :summary_cont, class: 'form-control', placeholder: '概要' %>
+              <%= f.text_field :note_cont, class: 'form-control', placeholder: '備考' %>
+              <%= f.select(:grade_cont,options_for_select([['標準履修年次',nil],[1,'1'],[2,'2'],[3,'3'],[4,'4']]),{},{:class => 'form-control'}) %>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <%= submit_tag "検索", class: 'btn btn-success' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="container">
+      <div class="hits-alert">
+        <div class="text-center">
+          <div class="alert alert-info">
+            <p><%= @hits %>件ヒット (<%= (@page.to_i-1)*25 + 1%>~<%= (@page.to_i-1)*25 + @subject.size %>件)</p>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">検索結果</div>
+          <!-- Table -->
+          <table class="table">
           <thead>
             <tr>
               <th>科目番号</th>
