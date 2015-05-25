@@ -35,26 +35,30 @@
           <td><%= attr[:grade] %></td>
         </tr>
         <tr>
+          <th scope="row">学期</th>
+          <td><%= attr[:semester] %></td>
+        </tr>
+        <tr class="info">
           <th scope="row">曜時限</th>
           <td><%= attr[:time] %></td>
         </tr>
-        <tr class="info">
+        <tr>
           <th scope="row">場所</th>
           <td><%= attr[:location] %></td>
         </tr>
-        <tr>
+        <tr class="warning">
           <th scope="row">教員</th>
           <td><%= attr[:lecturer]%></td>
         </tr>
-        <tr class="warning">
+        <tr>
           <th scope="row">概要</th>
           <td><%= attr[:summary] %></td>
         </tr>
-        <tr>
+        <tr class="danger">
           <th scope="row">備考</th>
           <td><%= attr[:note] %></td>
         </tr>
-        <tr class="danger">
+        <tr>
           <th scope="row">科目等履修生</th>
           <td><%= attr[:credit] %></td>
         </tr>

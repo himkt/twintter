@@ -8,26 +8,39 @@
       </div>
     </div>
     <div class="col-lg-8 col-lg-offset-2">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= search_form_for @q, url: {:action=>'index'}, html: {:class=>"form-inline"}, method: 'post' do |f| %>
-            <div class="row control-group">
-              <%= f.text_field :kcode_cont, class: 'form-control', placeholder: '科目番号' %>
-              <%= f.text_field :kname_cont, class: 'form-control', placeholder: '科目名' %>
-              <%= f.text_field :unit_eq , class: 'form-control', placeholder: '単位数' %>
-              <%= f.text_field :semester_cont, class: 'form-control', placeholder: '学期' %>
-              <%= f.text_field :time_cont, class: 'form-control', placeholder: '時間' %>
-              <%= f.text_field :location_cont, class: 'form-control', placeholder: '場所' %>
-              <%= f.text_field :lecturer_cont, class: 'form-control', placeholder: '担当教員' %>
-              <%= f.text_field :summary_cont, class: 'form-control', placeholder: '概要' %>
-              <%= f.text_field :note_cont, class: 'form-control', placeholder: '備考' %>
-              <%= f.select(:grade_cont,options_for_select([['標準履修年次',nil],[1,'1'],[2,'2'],[3,'3'],[4,'4']]),{},{:class => 'form-control'}) %>
+      <div class="text-center">
+        <div class="panel panel-success">
+          <div class="panel-heading">検索条件</div>
+          <div class="panel-body">
+            <%= search_form_for @q, url: {:action=>'index'}, html: {:class=>"form"}, method: 'post' do |f| %>
+              <div class="row control-group">
+                <div class="text-center">
+                  <div class="form-inline" style="margin: 10px;">
+                    <%= f.text_field :kcode_cont, class: 'form-control', placeholder: '科目番号' %>
+                    <%= f.text_field :kname_cont, class: 'form-control', placeholder: '科目名' %>
+                    <%= f.text_field :unit_eq , class: 'form-control', placeholder: '単位数' %>
+                  </div>
+                  <div class="form-inline" style="margin: 10px;">
+                    <%= f.text_field :semester_cont, class: 'form-control', placeholder: '学期' %>
+                    <%= f.text_field :time_cont, class: 'form-control', placeholder: '時間' %>
+                    <%= f.text_field :location_cont, class: 'form-control', placeholder: '場所' %>
+                  </div>
+                  <div class="form-inline" style="margin: 10px;">
+                    <%= f.text_field :lecturer_cont, class: 'form-control', placeholder: '担当教員' %>
+                    <%= f.text_field :summary_cont, class: 'form-control', placeholder: '概要' %>
+                    <%= f.text_field :note_cont, class: 'form-control', placeholder: '備考' %>
+                  </div>
+                  <div class="form-inline" style="margin: 10px;">
+                    <%= f.select(:grade_cont,options_for_select([['標準履修年次',nil],[1,'1'],[2,'2'],[3,'3'],[4,'4']]),{},{:class => 'form-control'}) %>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="panel-footer">
-            <%= submit_tag "検索", class: 'btn btn-success' %>
-          </div>
-        <% end %>
+            <div class="panel-footer">
+              <%= submit_tag "検索", class: 'btn btn-success' %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   <% else %>
@@ -38,33 +51,33 @@
             <p><%= @hits %>件ヒット (<%= (@page.to_i-1)*25 + 1%>~<%= (@page.to_i-1)*25 + @subject.size %>件)</p>
           </div>
         </div>
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
           <!-- Default panel contents -->
           <div class="panel-heading">検索結果</div>
           <!-- Table -->
           <table class="table">
-          <thead>
-            <tr>
-              <th>科目番号</th>
-              <th>科目名</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @subject.each.with_index(1) do |set, i| %>
+            <thead>
               <tr>
-                <td><%= set.kcode %></td>
-                <td><%= link_to set.kname , "/search/detail/#{set.kcode}" %></td>
+                <th>科目番号</th>
+                <th>科目名</th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <div class="panel-footer">
-          <div class="text-center">
-            <%= paginate(@subject) %>
+            </thead>
+            <tbody>
+              <% @subject.each.with_index(1) do |set, i| %>
+                <tr>
+                  <td><%= set.kcode %></td>
+                  <td><%= link_to set.kname , "/search/detail/#{set.kcode}" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div class="panel-footer">
+            <div class="text-center">
+              <%= paginate(@subject) %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
-</section>
+    <% end %>
+  </div>
+  </section>
