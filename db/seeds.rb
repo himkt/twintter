@@ -56,4 +56,7 @@ puts 'done'
 p dic.size
 
 puts 'seed data'
+dic.each do |word,value|
+  Model.create({:word=>word, :value=>value})
+end
 puts 'done'
