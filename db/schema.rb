@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514052211) do
+ActiveRecord::Schema.define(version: 20150525072654) do
+
+  create_table "models", force: :cascade do |t|
+    t.string   "value"
+    t.float    "sale_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "nows", force: :cascade do |t|
     t.string   "subject_kcode"

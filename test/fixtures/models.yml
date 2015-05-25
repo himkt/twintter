@@ -2,8 +2,8 @@
 
 one:
   value: MyString
-  sale_data: 
+  sale_data: 1.5
 
 two:
   value: MyString
-  sale_data: 
+  sale_data: 1.5
