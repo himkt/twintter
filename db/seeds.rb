@@ -9,7 +9,6 @@
 
 # rails g model Subject kcode:string unit:float kname:string grade:string semester:string time:string location:string lecturer:text summary:text note:text credit:string condition:text alternative:string
 
-=begin
 puts 'seed subjects...'
 File.foreach('vendor/subject/cutted_subjects.tsv') do |line|
   next if $. == 1
@@ -33,7 +32,6 @@ File.foreach('vendor/model/pn_en.dic') do |line|
   end
 end
 puts 'done'
-=end
 
 comments = [
 "課題出た？",
