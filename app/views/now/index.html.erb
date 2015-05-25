@@ -10,15 +10,25 @@
     <div class="col-lg-8 col-lg-offset-2">
       <div class="panel panel-default">
         <div class="panel-heading">つぶやき</div>
-        <ul class="list-group">
+        <table class="table">
+          <tr>
+            <th>つぶやき</th>
+            <th>科目番号</th>
+            <th>日時</th>
+            <th>削除</th>
+          </tr>
           <% @posts.reverse %>
-          <% @posts.each do |post| %>
-            <% if post['text'] != '' %>
-              <%= link_to "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" ,
-                "/search/detail/#{post.subject_kcode}" ,{:class=>"list-group-item"} %>
-              <% end %>
+            <% @posts.each do |post| %>
+              <tr>
+                <% if post['text'] != '' %>
+                  <td><%= post['text']%></td>
+                  <td><%= post['subject_kcode']%></td>
+                  <td><%= post['created_at']%></td>
+                  <td><a href="#">削除</a></td>
+                <% end %>
+              </tr>
             <% end %>
-        </ul>
+        </table>
         <div class="panel-footer"><div class="text-center"><%= paginate(@posts) %></div></div>
       </div>
     </div>
