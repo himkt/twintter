@@ -14,3 +14,28 @@ File.foreach('vendor/subject/cutted_subjects.tsv') do |line|
   items = line.split(/\t/)
   Subject.create({:kcode=>items[0].sub(/\.0$/,''), :kname=>items[1], :unit=>items[2], :grade=>items[3], :semester=>items[4], :time=>items[5], :location=>items[6], :lecturer=>items[7], :summary=>items[8], :note=>items[9], :credit=>items[10], :condition=>items[11], :alternative=>items[12]})
 end
+
+
+require 'sqlite3'
+
+comments = [
+"課題出た？",
+"なんか眠くなってきた",
+"完全に理解した",
+"この授業楽しいな",
+"全く理解できない",
+"早く終われ頼む",
+"楽しい。わかってきた",
+"こんなに簡単だったのか。"
+]
+
+# CREATE TABLE "nows" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "subject_kcode" varchar, "text" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "deleted" integer DEFAULT 0);
+
+db = SQLite3::Database.new('../twintter/db/development.sqlite3')
+
+sbjs = db.execute("SELECT kcode FROM subjects")
+
+100.times do
+  sbj = sbjs.sample(1)[0]
+  Now.create({:subject_kcode=>sbj[0], :text=>comments.sample(1)[0]})
+end

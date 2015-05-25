@@ -18,7 +18,7 @@ class NowController < ApplicationController
     if subject_kcode != '0'
       Now.create(:subject_kcode=>subject_kcode, :text=>tweet ,:deleted=>0)
       # postしたデータを含むツイート一覧をデータベースから取得する
-      @posts = Now.where("subject_kcode = ? and deleted = ?",@subject_kcode,0).reverse
+      # @posts = Now.where("subject_kcode = ? and deleted = ?",@subject_kcode,0).order("created_at desc").page(params[:page])
       render action: :selected_index
     end
   end
