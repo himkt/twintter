@@ -1,13 +1,13 @@
 class NowController < ApplicationController
   def index
-    @posts = Now.all.reverse
+    @posts = Now.all.order("created_at desc").page(params[:page])
   end
 
   def selected_index
     @post = Now.new
     @subject_kcode = params['subject_kcode']
     @subject = Subject.where("kcode = ?",@subject_kcode)
-    @posts = Now.where("subject_kcode = ? and deleted = ?",@subject_kcode,0).reverse
+    @posts = Now.where("subject_kcode = ? and deleted = ?",@subject_kcode,0).order("created_at desc").page(params[:page])
     tweet = params["now"]["text"] if params["now"]
     if tweet
       update(tweet, @subject_kcode)
