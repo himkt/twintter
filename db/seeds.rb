@@ -33,6 +33,12 @@ File.foreach('vendor/model/pn_en.dic') do |line|
 end
 puts 'done'
 
+puts 'seed models'
+dic.each do |word,value|
+  Model.create({:word=>word,:value=>value})
+end
+puts 'done'
+
 comments = [
 "課題出た？",
 "なんか眠くなってきた",
