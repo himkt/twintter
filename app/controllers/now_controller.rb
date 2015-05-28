@@ -4,12 +4,24 @@ class NowController < ApplicationController
   end
 
   def selected_index
-    @post = Now.new
+    
+    # 選択した科目の科目番号を取得
     @subject_kcode = params['subject_kcode']
+
+    # 検索
     @subject = Subject.where("kcode = ?",@subject_kcode)
+    
+    # 選択した科目に関するNowっを取得
+    @post = Now.new
     @posts = Now.where("subject_kcode = ? and deleted = ?",@subject_kcode,0).order("created_at desc").page(params[:page])
+    
+    # ツイートをする
     tweet = params["now"]["text"] if params["now"]
+    
+    # ツイートが存在する場合
     if tweet
+      
+      # ポジネガスコアを計算する(https://github.com/himkt/judge_pos_neg)
       sum = 0
       nm = Natto::MeCab.new
       nm.parse(tweet).split(/\n/).each do |line|
@@ -21,7 +33,8 @@ class NowController < ApplicationController
       end
       e = Math.exp(1)
       score = (e ** sum - e** (-1 * sum)) / (e ** sum + e** (-1 * sum))
-      @score = score
+
+      # ツイートをDBに保存
       update(tweet,@subject_kcode,score)
     end
   end

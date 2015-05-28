@@ -20,15 +20,33 @@
             <%= submit_tag "つぶやく", class: 'btn btn-default' %>
           <% end %>
         </div>
-        <ul class="list-group">
+        <table class="table">
+          <tr>
+            <th>ポジ/ネガ</th>
+            <th>つぶやき</th>
+            <th>科目番号</th>
+            <th>日時</th>
+            <th>削除</th>
+          </tr>
           <% @posts.reverse %>
           <% @posts.each do |post| %>
-            <% if post['text'] != '' %>
-              <%= link_to "#{post['text']}　　　#{post['subject_kcode']}　　　#{post['created_at']}" ,
-                "/search/detail/#{post.subject_kcode}" ,{:class=>"list-group-item"} %>
+            <tr>
+              <% if post['text'] != '' %>
+                <% if post['score'] < -0.3 %>
+                  <td><span class="label label-primary">Negative</span></td>
+                <% elsif post['score'] > 0.3 %>
+                  <td><span class="label label-success">Positive</span></td>
+                <% else %>
+                  <td><span class="label label-default">Not Sure</span></td>
+                <% end %>
+                <td><%= post['text']%></td>
+                <td><%= post['subject_kcode']%></td>
+                <td><%= post['created_at']%></td>
+                <td><a href="#">削除</a></td>
               <% end %>
-            <% end %>
-        </ul>
+            </tr>
+          <% end %>
+        </table>
         <div class="panel-footer"><div class="text-center"><%= paginate(@posts) %></div></div>
       </div>
     </div>
