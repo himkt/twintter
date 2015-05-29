@@ -16,10 +16,37 @@ Rails version: 4.1.2
 
 ## install
 
+#### gem
+
 please run to install required gems.
 
 ```ruby
 bundle install --path vendor/bundle
+```
+
+#### create database
+```ruby
+bundle exec rake db:migrate
+```
+
+#### model
+
+make a model for polarity analysis.
+
+```ruby
+bundle exec rake build
+```
+
+#### subjects data
+
+see https://github.com/himkt/kdb_scraper
+
+I have finished creating document about it.. I'm sorry but please wait...  
+
+After all, please run
+
+```ruby
+bundle exec rake seed
 ```
 
 ## run
