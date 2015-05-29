@@ -12,9 +12,9 @@
         <div class="panel-heading">つぶやき</div>
         <table class="table">
           <tr>
-            <th>ポジ/ネガ</th>
-            <th>つぶやき</th>
             <th>科目名</th>
+            <th>つぶやき</th>
+            <th>ポジ/ネガ</th>
             <th>日時</th>
             <th>削除</th>
           </tr>
@@ -24,14 +24,14 @@
             <tr>
                 <% if post['text'] != '' %>
                   <% if post['score'] < -0.3 %>
-                    <td><span class="label label-primary">Negative</span></td>
+                    <td><span class="label label-primary">Neg</span></td>
                   <% elsif post['score'] > 0.3 %>
-                    <td><span class="label label-success">Positive</span></td>
+                    <td><span class="label label-success">Pos</span></td>
                   <% else %>
-                    <td><span class="label label-default">Not Sure</span></td>
+                    <td><span class="label label-default">Nor</span></td>
                   <% end %>
-                  <td><%= post['text']%></td>
                   <td><a href="/search/detail/<%= post['subject_kcode']%>"><%= post['kname']%></a></td>
+                  <td><%= post['text']%></td>
                   <td><%= post['created_at']%></td>
                   <td><a href="#">削除</a></td>
                 <% end %>
