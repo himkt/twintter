@@ -7,10 +7,10 @@
 # Ignore bundler config.
 /.bundle
 
-/vendor
-
-!vendor/subject/parse_xlsx.rb
-
+vendor/bundle
+vendor/model
+vendor/subject/kdb_*.xlsx
+vendor/subject/subjects.tsv
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
