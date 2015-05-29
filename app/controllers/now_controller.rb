@@ -1,6 +1,7 @@
 class NowController < ApplicationController
   def index
-    @posts = Now.all.order("created_at desc").page(params[:page])
+    @posts = Now.all.order("created_at desc").page(params[:page]).joins("INNER JOIN subjects ON nows.subject_kcode = subjects.kcode").select("nows.*, subjects.kname")
+    
   end
 
   def selected_index

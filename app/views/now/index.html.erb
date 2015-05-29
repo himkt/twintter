@@ -7,20 +7,21 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-lg-12">
       <div class="panel panel-default">
         <div class="panel-heading">つぶやき</div>
         <table class="table">
           <tr>
             <th>ポジ/ネガ</th>
             <th>つぶやき</th>
-            <th>科目番号</th>
+            <th>科目名</th>
             <th>日時</th>
             <th>削除</th>
           </tr>
           <% @posts.reverse %>
-            <% @posts.each do |post| %>
-              <tr>
+          <% @posts.each do |post| %>
+            <%= post['subject_name']%>
+            <tr>
                 <% if post['text'] != '' %>
                   <% if post['score'] < -0.3 %>
                     <td><span class="label label-primary">Negative</span></td>
@@ -30,7 +31,7 @@
                     <td><span class="label label-default">Not Sure</span></td>
                   <% end %>
                   <td><%= post['text']%></td>
-                  <td><%= post['subject_kcode']%></td>
+                  <td><a href="/search/detail/<%= post['subject_kcode']%>"><%= post['kname']%></a></td>
                   <td><%= post['created_at']%></td>
                   <td><a href="#">削除</a></td>
                 <% end %>
