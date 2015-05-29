@@ -53,6 +53,11 @@ please puts the file in app/vendor/subjects
 
 file name may be 'kdb_xxxxxxxxx.xlsx'
 
+```shell
+mkdir vendor/subject
+cp path_to_kdbfile(kdb_xxxxxxxxx.xlsx) vendor/subject/
+```
+
 see https://github.com/makky3939/kdb2tsv
 
 (or https://github.com/himkt/kdb_scraper)

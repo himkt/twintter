@@ -13,5 +13,4 @@ task :build do
   sh "nkf -w vendor/model/pn_ja.dic > vendor/model/pn_ja.dic.conv"
   sh "rm vendor/model/pn_ja.dic"
   sh "mv vendor/model/pn_ja.dic.conv vendor/model/pn_ja.dic"
-  sh "git clone https://github.com/himkt/kdb_scraper.git vendor/subject"
 end
