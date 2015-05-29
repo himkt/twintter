@@ -10,10 +10,24 @@
 # rails g model Subject kcode:string unit:float kname:string grade:string semester:string time:string location:string lecturer:text summary:text note:text credit:string condition:text alternative:string
 
 puts 'seed subjects...'
-File.foreach('vendor/subject/cutted_subjects.tsv') do |line|
+File.foreach('vendor/subject/subjects.tsv') do |line|
   next if $. == 1
   items = line.split(/\t/)
-  Subject.create({:kcode=>items[0].sub(/\.0$/,''), :kname=>items[1], :unit=>items[2], :grade=>items[3], :semester=>items[4], :time=>items[5], :location=>items[6], :lecturer=>items[7], :summary=>items[8], :note=>items[9], :credit=>items[10], :condition=>items[11], :alternative=>items[12]})
+  Subject.create({
+    :kcode=>items[0].sub(/\.0$/,''),
+    :kname=>items[1],
+    :unit=>items[2],
+    :grade=>items[3],
+    :semester=>items[4],
+    :time=>items[5],
+    :location=>items[6],
+    :lecturer=>items[7],
+    :summary=>items[8],
+    :note=>items[9],
+    :credit=>items[10],
+    :condition=>items[11],
+    :alternative=>items[12]
+  })
 end
 puts 'done'
 

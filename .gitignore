@@ -7,6 +7,11 @@
 # Ignore bundler config.
 /.bundle
 
+/vendor
+
+!vendor/subject/parse_xlsx.rb
+
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -19,7 +24,6 @@
 !.gitignore
 
 # Ignore bundle installs
-/vendor/*
 
 /config/secrets.yml
 
