@@ -58,7 +58,8 @@ see https://github.com/makky3939/kdb2tsv
 (or https://github.com/himkt/kdb_scraper)
 
 ```ruby
-bundle exec ruby vendor/subject/parse_xlsx.rb vendor/subject/kdb_xxxxxxxxx.xlsx
+cd path_to_twintter (path is where twintter exists)
+bundle exec ruby db/parse_xlsx.rb vendor/subject/kdb_xxxxxxxxx.xlsx
 ```
 
 I have finished creating document about it.. I'm sorry but please wait...  
