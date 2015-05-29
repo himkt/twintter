@@ -39,7 +39,23 @@ bundle exec rake build
 
 #### subjects data
 
-see https://github.com/himkt/kdb_scraper
+___This column is under cunstruction.___
+
+* download data
+
+![KDBを開き検索を行う](screen_shots/検索.png)
+
+![データをエクスポートする](screen_shots/エクスポート.png)
+
+if exporting successes, you will get data into your download file (may be ~/Downloads).  
+
+please puts the file in app/vendor/subjects  
+
+file name may be 'kdb_xxxxxxxxx.xlsx'
+
+see https://github.com/makky3939/kdb2tsv
+
+(or https://github.com/himkt/kdb_scraper)
 
 I have finished creating document about it.. I'm sorry but please wait...  
 
