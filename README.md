@@ -24,6 +24,22 @@ please run to install required gems.
 bundle install --path vendor/bundle
 ```
 
+#### config/secrets.yml
+
+create a secrets file.
+```shell
+cp config/secrets.yml.default config/secrets.yml
+```
+
+if you run this app with production mode, please run
+```shell
+bundle exec rake secret
+```
+and copy outputing String, paste into config/secrets.yml (http://stackoverflow.com/questions/21136363/using-config-secrets-yml-in-rails-4-0-2-version)
+
+___don't make secret.yaml public !!!!___
+
+
 #### create database
 ```shell
 bundle exec rake db:migrate
