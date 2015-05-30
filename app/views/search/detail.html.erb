@@ -1,9 +1,8 @@
-<br><br><br><%= @params %>
-
 <div class="container">
   <div class="jumbotron">
     <% @subject.each do |attr| %>
       <h2><%= attr[:kname] %></h2>
+      <p>
       <a class="btn btn-primary btn-lg notice" href="/now/selected_index/<%= attr[:kcode] %>"><i class="fa fa-list"></i> Nowを見る</a>
       <span>
         <script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script>
@@ -13,6 +12,21 @@
       </span>
       <a class="btn btn-primary btn-lg notice" href="http://line.me/R/msg/text/?LINE%E3%81%A7%E9%80%81%E3%82%8B%0D%0Ahttp%3A%2F%2Fline.me%2F"><i class="fa fa-volume-up"></i> LINEで送る</a>
       <a class="btn btn-primary btn-lg notice" href="https://twitter.com/share" class="twitter-share-button"><i class="fa fa-twitter"></i> Twitterで共有</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </p>
+      <% if @tasks.size != 0 %>
+        <div class="alert alert-danger">課題:
+          <% @tasks.each do |task| %>
+            <span class="label label-primary"><%= task %></span>
+          <% end %>
+        </div>
+      <% end %>
+      <% if @cancels.size != 0 %>
+        <div class="alert alert-info">休講:
+          <% @cancels.each do |cancel| %>
+            <span class="label label-primary"><%= cancel %></span>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <table class="table">
       <thead>

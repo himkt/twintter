@@ -28,8 +28,26 @@ class SearchController < ApplicationController
   end
 
   def detail
+    
+    # 科目番号
     kcode = params[:kcode]
+
+    # 科目情報を取得
     @subject = Subject.where({'kcode'=>kcode})
+
+    @tasks = []
+    @cancels = []
+
+    Now.where({'subject_kcode'=>kcode, 'deleted'=>0}).first(100).each do |now|
+      @now = now['text']
+      if item = now['text'].match(/課題は(.*)(?:だ|ら|か)/)
+        @tasks.push(item[1])
+      end
+      if item = now['text'].match(/次回は?(休講)/)
+        @cancels.push(now['created_at'])
+      end
+    end
+
   end
 
 end
