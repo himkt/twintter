@@ -42,7 +42,7 @@ class SearchController < ApplicationController
       @now = now['text']
 
       # 課題情報を抽出
-      if item = now['text'].match(/課題は(.*)(?:だ|ら|か|\.|。)/)
+      if item = now['text'].match(/課題は(.*)(?:です|だ|ら|か|\.|。)/)
         @tasks.push(item[1])
       end
 
