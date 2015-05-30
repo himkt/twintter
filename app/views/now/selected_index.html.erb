@@ -4,8 +4,9 @@
     <div class="col-lg-12 text-center">
       <h2>Now - 
         <% @subject.each do |element| %>
-          <%= element['kname'] %>
-        <% end %></h2>
+          <a href="/search/detail/<%= @subject_kcode %>"><%= element['kname'] %></a>
+        <% end %>
+      </h2>
       <hr class="star-primary">
     </div>
   </div>
@@ -40,7 +41,7 @@
                 <% end %>
                 <td><%= post['text']%></td>
                 <td><%= post['created_at']%></td>
-                  <td><a href="/now/delete/<%= post['id'] %>">削除</a></td>
+                <td><a href="/now/delete/<%= post['id'] %>">削除</a></td>
               <% end %>
             </tr>
           <% end %>

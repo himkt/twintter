@@ -40,10 +40,14 @@ class SearchController < ApplicationController
 
     Now.where({'subject_kcode'=>kcode, 'deleted'=>0}).first(100).each do |now|
       @now = now['text']
-      if item = now['text'].match(/課題は(.*)(?:だ|ら|か)/)
+
+      # 課題情報を抽出
+      if item = now['text'].match(/課題は(.*)(?:だ|ら|か|\.|。)/)
         @tasks.push(item[1])
       end
-      if item = now['text'].match(/次回は?(休講)/)
+
+      # 休講情報を抽出
+      if item = now['text'].match(/(次回|来週)は?(休講)/)
         @cancels.push(now['created_at'])
       end
     end
