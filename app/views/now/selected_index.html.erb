@@ -40,7 +40,7 @@
                 <% end %>
                 <td><%= post['text']%></td>
                 <td><%= post['created_at']%></td>
-                <td><a href="#">削除</a></td>
+                  <td><a href="/now/delete/<%= post['id'] %>">削除</a></td>
               <% end %>
             </tr>
           <% end %>

@@ -1,6 +1,6 @@
 class NowController < ApplicationController
   def index
-    @posts = Now.all.order("created_at desc").page(params[:page]).joins("INNER JOIN subjects ON nows.subject_kcode = subjects.kcode").select("nows.*, subjects.kname")
+    @posts = Now.all.order("created_at desc").page(params[:page]).where("deleted = 0").joins("INNER JOIN subjects ON nows.subject_kcode = subjects.kcode").select("nows.*, subjects.kname")
     
   end
 
@@ -14,7 +14,7 @@ class NowController < ApplicationController
     
     # 選択した科目に関するNowっを取得
     @post = Now.new
-    @posts = Now.where("subject_kcode = ? and deleted = ?",@subject_kcode,0).order("created_at desc").page(params[:page])
+    @posts = Now.where("subject_kcode = ? and deleted = 0",@subject_kcode).order("created_at desc").page(params[:page])
     
     # ツイートをする
     tweet = params["now"]["text"] if params["now"]
@@ -50,9 +50,11 @@ class NowController < ApplicationController
   end
   
   def delete(id=nil)
-    @now = Now.find(params[:id])
-    # @update = @now.update(deleted = True)
+    now = Now.find(params[:id])
+    now.update(:deleted=>1)
+    now.save
   end
+
   def favorite(id=nil)
   end
 end
