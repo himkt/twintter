@@ -24,15 +24,23 @@ class NowController < ApplicationController
       
       # ポジネガスコアを計算する(https://github.com/himkt/judge_pos_neg)
       sum = 0
+      
+      # Nattoインスタンスを作成
       nm = Natto::MeCab.new
+
+      # ツイートを形態素解析、単語ごとに分割
       nm.parse(tweet).split(/\n/).each do |line|
         elem = line.split(/\t/)
         break if elem[0] == 'EOS' 
         word = (elem[1].split(/\,/)[6] == '*') ? elem[0].stem : elem[1].split(/\,/)[6]
         value = Model.where("word = '#{word}'")[0]
+
+        # スコア計算
         sum += value.value if value
       end
+
       e = Math.exp(1)
+      # tanh
       score = (e ** sum - e** (-1 * sum)) / (e ** sum + e** (-1 * sum))
 
       # ツイートをDBに保存
