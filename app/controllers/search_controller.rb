@@ -47,7 +47,7 @@ class SearchController < ApplicationController
       end
 
       # 休講情報を抽出
-      if item = now['text'].match(/(次回|来週)は?(休講)/)
+      if now['text'].match(/(次回|来週)は?(休講)/)
         @cancels.push(now['created_at'])
       end
     end
