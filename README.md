@@ -82,7 +82,7 @@ I have finished creating document about it.. I'm sorry but please wait...
 After all, please run
 
 ```shell
-bundle exec rake seed
+bundle exec rake db:seed
 ```
 
 ## run
