@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag    'now', media: 'all', 'data-turbolinks-track' => true %>
 <section id="contact">
 <div class="container">
   <div class="row">
@@ -10,34 +11,33 @@
     <div class="col-lg-12">
       <div class="panel panel-default">
         <div class="panel-heading">つぶやき</div>
-        <table class="table">
-          <tr>
-            <th>ポジ/ネガ</th>
-            <th>科目名</th>
-            <th>つぶやき</th>
-            <th>日時</th>
-            <th>削除</th>
-          </tr>
-          <% @posts.reverse %>
-          <% @posts.each do |post| %>
-            <%= post['subject_name']%>
-            <tr>
-                <% if post['text'] != '' %>
-                  <% if post['score'] < -0.3 %>
-                    <td><span class="label label-primary">Neg</span></td>
-                  <% elsif post['score'] > 0.3 %>
-                    <td><span class="label label-success">Pos</span></td>
-                  <% else %>
-                    <td><span class="label label-default">Nor</span></td>
+        <div class="list-group">
+          <% @posts.reverse.each do |post| %>
+            <div class="list-group-item">
+              <style>
+              </style>
+              <p class="tweet-toggle" class="list-group-item">
+              <% if post['score'] < -0.3 %>
+                <span class="label label-primary">Neg</span>
+              <% elsif post['score'] > 0.3 %>
+                <span class="label label-success">Pos</span>
+              <% else %>
+                <span class="label label-default">Nor</span>
+              <% end %>
+              <%= post['text'] %>
+              </p>
+              <div class="tweet-data">
+                <div class="table">
+                  <% if post['text'] != '' %>
+                    <td><a href="/search/detail/<%= post['subject_kcode']%>"><%= post['kname']%></a></td>
+                    <td><%= post['created_at']%></td>
+                    <td><a href="/now/delete/<%= post['id'] %>">削除</a></td>
                   <% end %>
-                  <td><a href="/search/detail/<%= post['subject_kcode']%>"><%= post['kname']%></a></td>
-                  <td><%= post['text']%></td>
-                  <td><%= post['created_at']%></td>
-                  <td><a href="/now/delete/<%= post['id'] %>">削除</a></td>
-                <% end %>
-              </tr>
-            <% end %>
-        </table>
+                </div>
+              </div>
+            </div>
+          <%end%>
+        </div>
         <div class="panel-footer"><div class="text-center"><%= paginate(@posts) %></div></div>
       </div>
     </div>

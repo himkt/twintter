@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag    'now', media: 'all', 'data-turbolinks-track' => true %>
 <section id="contact">
 <div class="container">
   <div class="row">
@@ -21,31 +22,30 @@
             <%= submit_tag "つぶやく", class: 'btn btn-default' %>
           <% end %>
         </div>
-        <table class="table">
-          <tr>
-            <th>ポジ/ネガ</th>
-            <th>つぶやき</th>
-            <th>日時</th>
-            <th>削除</th>
-          </tr>
-          <% @posts.reverse %>
-          <% @posts.each do |post| %>
-            <tr>
-              <% if post['text'] != '' %>
-                <% if post['score'] < -0.3 %>
-                  <td><span class="label label-primary">Negative</span></td>
-                <% elsif post['score'] > 0.3 %>
-                  <td><span class="label label-success">Positive</span></td>
-                <% else %>
-                  <td><span class="label label-default">Not Sure</span></td>
-                <% end %>
-                <td><%= post['text']%></td>
-                <td><%= post['created_at']%></td>
-                <td><a href="/now/delete/<%= post['id'] %>">削除</a></td>
+        <div class="list-group">
+          <% @posts.reverse.each do |post| %>
+            <div class="list-group-item">
+              <p class="tweet-toggle" class="list-group-item">
+              <% if post['score'] < -0.3 %>
+                <span class="label label-primary">Neg</span>
+              <% elsif post['score'] > 0.3 %>
+                <span class="label label-success">Pos</span>
+              <% else %>
+                <span class="label label-default">Nor</span>
               <% end %>
-            </tr>
-          <% end %>
-        </table>
+              <%= post['text'] %>
+              </p>
+              <div class="tweet-data">
+                <div class="table">
+                  <% if post['text'] != '' %>
+                    <td><%= post['created_at']%></td>
+                    <td><a href="/now/delete/<%= post['id'] %>">削除</a></td>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <%end%>
+        </div>
         <div class="panel-footer"><div class="text-center"><%= paginate(@posts) %></div></div>
       </div>
     </div>
