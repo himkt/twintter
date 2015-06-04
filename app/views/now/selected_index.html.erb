@@ -23,7 +23,7 @@
           <% end %>
         </div>
         <div class="list-group">
-          <% @posts.reverse.each do |post| %>
+          <% @posts.each do |post| %>
             <div class="list-group-item">
               <p class="tweet-toggle" class="list-group-item">
               <% if post['score'] < -0.3 %>
@@ -52,16 +52,3 @@
   </div>
 </div>
 </section>
-<script>
-  $(function() {
-    $(".tweet-data").hide();
-    $(".tweet-toggle").click(function() {
-      $(this).next().slideToggle().siblings(".tweet-data").slideUp();
-    });
-  });
-</script>
-<style>
-.list-group-item:hover{
-  background-color: #ddd;
-}
-</style>

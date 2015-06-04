@@ -12,7 +12,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">つぶやき</div>
         <div class="list-group">
-          <% @posts.reverse.each do |post| %>
+          <% @posts.each do |post| %>
             <div class="list-group-item">
               <style>
               </style>
@@ -44,18 +44,3 @@
   </div>
 </div>
 </section>
-
-<script>
-  $(function() {
-    $(".tweet-data").hide();
-    $(".tweet-toggle").click(function() {
-      $(this).next().slideToggle().siblings(".tweet-data").slideUp();
-    });
-  });
-</script>
-
-<style>
-.list-group-item:hover{
-  background-color: #ddd;
-}
-</style>
