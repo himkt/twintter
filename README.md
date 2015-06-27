@@ -26,11 +26,18 @@ first, download the repository.
 
 ```shell
 git clone git@github.com:himkt/twintter.git
+```
+or
+```shell
+git clone https://github.com/himkt/twintter.git
+```
+
+second, move to repository
+```shell
 cd twintter
 ```
 
 please run to install required gems.
-
 ```shell
 bundle install --path vendor/bundle
 ```
