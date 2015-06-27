@@ -53,6 +53,7 @@ dic.each do |word,value|
 end
 puts 'done'
 
+=begin
 comments = [
 "課題出た？",
 "なんか眠くなってきた",
@@ -84,3 +85,4 @@ puts 'seed nows'
   Now.create(:subject_kcode=>kcode, :text=>tweet ,:deleted=>0,:score=>score)
 end
 puts 'done'
+=end
