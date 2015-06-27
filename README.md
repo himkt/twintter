@@ -1,7 +1,7 @@
 # Twintter
 
 ```
-We had the second prize in our class !
+We won the second prize in our class !
 ```
 
 Twintter is a system includes various function: searching, sharing, and talking about a course...
