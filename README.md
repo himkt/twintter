@@ -1,7 +1,7 @@
 # Twintter
 
 ```
-We got a second prize in our class !
+We had the second prize in our class !
 ```
 
 Twintter is a system includes various function: searching, sharing, and talking about a course...
@@ -22,6 +22,13 @@ Rails version: 4.1.2
 
 #### gem
 
+first, download the repository.
+
+```shell
+git clone git@github.com:himkt/twintter.git
+cd twintter
+```
+
 please run to install required gems.
 
 ```shell
@@ -29,6 +36,8 @@ bundle install --path vendor/bundle
 ```
 
 #### config/secrets.yml
+
+##### ___This section doesn't need when you run this app in development mode.___
 
 create a secrets file.
 ```shell
@@ -61,7 +70,7 @@ bundle exec rake build
 
 ___This column is under cunstruction.___
 
-* download data
+* download data from [here](https://kdb.tsukuba.ac.jp/)
 
 ![KDBを開き検索を行う](screen_shots/検索.png)
 
