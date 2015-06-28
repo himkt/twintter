@@ -108,5 +108,5 @@ bundle exec rake db:seed
 ## run
 
 ```shell
-rails s
+bundle exec rails s
 ```
