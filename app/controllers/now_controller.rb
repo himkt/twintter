@@ -12,7 +12,7 @@ class NowController < ApplicationController
     # 検索
     @subject = Subject.where("kcode = ?",@subject_kcode)
     
-    # 選択した科目に関するNowっを取得
+    # 選択した科目に関するNowを取得
     @post = Now.new
     @posts = Now.where("subject_kcode = ? and deleted = 0",@subject_kcode).order("created_at desc").page(params[:page])
     
@@ -58,6 +58,8 @@ class NowController < ApplicationController
   end
   
   def delete(id=nil)
+
+    # get tweet by id
     now = Now.find(params[:id])
     now.update(:deleted=>1)
     now.save
