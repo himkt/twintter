@@ -25,3 +25,6 @@ vendor
 /config/secrets.yml
 
 public/assets
+
+!.cellar
+!.buildpacks
