@@ -9,6 +9,7 @@ group :development do
 end
 group :production do
   gem 'pg'
+  gem 'mecab', '0.996'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -30,7 +31,7 @@ gem "ransack"
 
 gem "kaminari"
 
-#gem 'natto'
+gem 'natto'
 
 gem 'roo'
 
