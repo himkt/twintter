@@ -30,7 +30,7 @@ gem "ransack"
 
 gem "kaminari"
 
-gem 'natto'
+#gem 'natto'
 
 gem 'roo'
 
